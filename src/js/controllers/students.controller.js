@@ -1,4 +1,4 @@
-function StudentsController (localStorageService) {
+function StudentsController (Storage) {
 
   let vm = this;
 
@@ -9,23 +9,21 @@ function StudentsController (localStorageService) {
   init();
 
   function init () {
-    let studentData = localStorageService.get('students');
-    vm.students = studentData ? studentData : [];
-    console.log(vm.students);
+    vm.students = Storage.getStudents();
   }
 
   function addStudent () {
+    vm.student.id = Storage.genId();
     vm.students.push(vm.student);
     vm.student = {};
-    return localStorageService.set('students', vm.students);
+    return Storage.setStudents(vm.students);
   }
 
   function clearStudents () {
-    vm.students = [];
-    return localStorageService.set('students', vm.students);
+    vm.students = Storage.clearStudents();
   }
 
 }
 
-StudentsController.$inject = ['localStorageService'];
+StudentsController.$inject = ['Storage'];
 export { StudentsController };

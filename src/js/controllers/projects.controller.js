@@ -1,4 +1,4 @@
-function ProjectsController (localStorageService) {
+function ProjectsController (Storage) {
 
   let vm = this;
 
@@ -9,26 +9,24 @@ function ProjectsController (localStorageService) {
   init();
 
   function init () {
-    let projects = localStorageService.get('projects');
-    vm.students = localStorageService.get('students');
-    vm.projects = projects ? projects : [];
+    vm.students = Storage.getStudents();
+    vm.projects = Storage.getProjects();
     console.log(vm.projects);
   }
   
   function addProject () {
-    vm.project.id = new Date().valueOf();
+    vm.project.id = Storage.genId();
     vm.projects.push(vm.project);
     vm.project = {};
-    return localStorageService.set('projects', vm.projects);
+    return Storage.setProjects(vm.projects);
   }
 
   function clearProjects () {
-    vm.projects = [];
-    return localStorageService.set('projects', vm.projects);
+    return Storage.clearProjects();
   }
 
 
 }
 
-ProjectsController.$inject = ['localStorageService'];
+ProjectsController.$inject = ['Storage'];
 export { ProjectsController };

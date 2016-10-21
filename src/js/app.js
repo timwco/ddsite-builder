@@ -8,6 +8,8 @@ import { StudentController } from './controllers/student.controller';
 import { ProjectsController } from './controllers/projects.controller';
 import { ProjectController } from './controllers/project.controller';
 
+import { Storage } from './services/storage.service';
+
 angular
   .module('app', ['ui.router', 'LocalStorageModule'])
   .config(config)
@@ -15,3 +17,4 @@ angular
   .controller('StudentController', StudentController)
   .controller('ProjectsController', ProjectsController)
   .controller('ProjectController', ProjectController)
+  .service('Storage', Storage)

@@ -1,0 +1,11 @@
+h3.title
+  | Update A Project
+div.form
+  p.control
+    input.input(type='text', placeholder='Project Name', ng-model="vm.project.name")
+  p.control
+    select.multiselect(name='multipleSelect', ng-model='vm.project.students', multiple='')
+      option(ng-repeat='student in vm.students', value='{{ student.github }}') {{ student.name }}
+  p.control
+    button.button.is-primary(ng-click="vm.updateProject()") Update Project
+    button.button.is-danger.fl-right(ng-click="vm.deleteProject()") Delete Project

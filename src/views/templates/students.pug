@@ -23,7 +23,7 @@
     div.students
       ul.menu-list
         li(ng-repeat="student in vm.students")
-          a(href="/#/students/{{ student.github }}")
+          a(href="/#/students/{{ student.id }}")
             | {{ student.name }}
     hr
     button(ng-click="vm.clearStudents()", class="button is-danger fl-right") Clear All Students

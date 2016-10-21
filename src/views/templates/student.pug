@@ -1,6 +1,6 @@
 h3.title
   | Update Student
-form(ng-submit="vm.updateStudent()")
+div.form
   p.control
     input.input(type='text', ng-model="vm.student.name")
   p.control
@@ -13,5 +13,7 @@ form(ng-submit="vm.updateStudent()")
   p.control
     input.input(type='text', ng-model="vm.student.github")
   p.control
-    button.button
-      | Update Student
+    button.button.is-primary(ng-click="vm.updateStudent()") Update Student
+    button.button.fl-right.is-danger(ng-click="vm.deleteStudent()") Delete Student
+
+    

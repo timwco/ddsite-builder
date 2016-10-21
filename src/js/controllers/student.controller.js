@@ -1,31 +1,39 @@
 import _ from 'lodash';
 
-function StudentController ($stateParams, localStorageService, $state) {
+function StudentController ($stateParams, Storage, $state) {
 
   let vm = this;
 
   vm.updateStudent = updateStudent;
+  vm.deleteStudent = deleteStudent;
   vm.students = [];
 
   init();
 
   function init () {
     let studentId = $stateParams.student;
-    let studentsLS = localStorageService.get('students');
-    vm.students = (studentsLS) ? studentsLS : [];
-    vm.student = _.find(vm.students, { github: studentId });
+    vm.students = Storage.getStudents();
+    vm.student = _.find(vm.students, { id: Number(studentId) });
   }
 
   function updateStudent () {
-    let studentArr = _.remove(vm.students, (s) => {
-      return s.github === $stateParams.student;
+    vm.students = _.filter(vm.students, (s) => {
+      return s.id !== Number($stateParams.student);
     });
     vm.students.push(vm.student);
-    localStorageService.set('students', vm.students);
+    Storage.setStudents(vm.students);
+    $state.go('students');
+  }
+
+  function deleteStudent () {
+    let updatedStudents = _.filter(vm.students, (s) => {
+      return s.id !== Number($stateParams.student);
+    });
+    Storage.setStudents(updatedStudents);
     $state.go('students');
   }
 
 }
 
-StudentController.$inject = ['$stateParams', 'localStorageService', '$state'];
+StudentController.$inject = ['$stateParams', 'Storage', '$state'];
 export { StudentController };
