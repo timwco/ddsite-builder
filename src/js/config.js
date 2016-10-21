@@ -4,8 +4,12 @@ function config ($stateProvider, $urlRouterProvider, localStorageServiceProvider
   localStorageServiceProvider.setStorageType('localStorage');
 
   $stateProvider
-    .state('students', {
+    .state('home', {
       url: '/',
+      templateUrl: 'templates/home.html'
+    })
+    .state('students', {
+      url: '/students',
       controller: 'StudentsController as vm',
       templateUrl: 'templates/students.html'
     })
