@@ -1,0 +1,23 @@
+.columns
+  .column
+    h3.title
+      | Create A Project
+    form(ng-submit="vm.addProject()")
+      p.control
+        input.input(type='text', placeholder='Project Name', ng-model="vm.project.name")
+      p.control
+        select.multiselect(name='multipleSelect', ng-model='vm.project.students', multiple='')
+          option(ng-repeat='student in vm.students', value='{{ student.github }}') {{ student.name }}
+      p.control
+        button.button.is-primary
+          | Add Project
+  .column
+    h3.title Projects
+      small.middle  (Click to Edit)
+    div.students
+      ul.menu-list
+        li(ng-repeat="project in vm.projects")
+          a(href="/#/projects/{{ project.id }}")
+            | {{ project.name }}
+    hr
+    button(ng-click="vm.clearProjects()", class="button is-danger fl-right") Clear All Projects

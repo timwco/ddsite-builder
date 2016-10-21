@@ -4,15 +4,25 @@ function config ($stateProvider, $urlRouterProvider, localStorageServiceProvider
   localStorageServiceProvider.setStorageType('localStorage');
 
   $stateProvider
-    .state('main', {
-      url: '/',
-      controller: 'MainController as vm',
-      templateUrl: 'templates/main.html'
-    })
     .state('students', {
+      url: '/',
+      controller: 'StudentsController as vm',
+      templateUrl: 'templates/students.html'
+    })
+    .state('student', {
       url: '/students/:student',
       controller: 'StudentController as vm',
-      templateUrl: 'templates/students.html'
+      templateUrl: 'templates/student.html'
+    })
+    .state('projects', {
+      url: '/projects',
+      controller: 'ProjectsController as vm',
+      templateUrl: 'templates/projects.html'
+    })
+    .state('project', {
+      url: '/projects/:project',
+      controller: 'ProjectController as vm',
+      templateUrl: 'templates/project.html'
     })
   
 

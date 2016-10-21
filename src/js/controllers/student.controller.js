@@ -22,7 +22,7 @@ function StudentController ($stateParams, localStorageService, $state) {
     });
     vm.students.push(vm.student);
     localStorageService.set('students', vm.students);
-    $state.go('main');
+    $state.go('students');
   }
 
 }

@@ -7,3 +7,19 @@
 .fl-right { float: right; }
 .fl-left { float: left; }
 .middle { vertical-align: middle; }
+
+
+.multiselect {
+  -webkit-appearance: none;
+  background-color: white;
+  border: 1px solid #dbdbdb;
+  border-radius: 3px;
+  color: #363636;
+  font-size: 14px;
+  line-height: 24px;
+  padding: 8px;
+  box-shadow: inset 0 1px 2px rgba(10, 10, 10, 0.1);
+  max-width: 100%;
+  width: 100%;
+  min-height: 200px;
+}

@@ -1,4 +1,4 @@
-function MainController (localStorageService) {
+function StudentsController (localStorageService) {
 
   let vm = this;
 
@@ -21,12 +21,11 @@ function MainController (localStorageService) {
   }
 
   function clearStudents () {
-    console.log('here');
     vm.students = [];
     return localStorageService.set('students', vm.students);
   }
 
 }
 
-MainController.$inject = ['localStorageService'];
-export { MainController };
+StudentsController.$inject = ['localStorageService'];
+export { StudentsController };
