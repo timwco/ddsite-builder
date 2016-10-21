@@ -1,0 +1,21 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=Edge')
+    meta(name='viewport', content='width=device-width, initial-scale=1, maximum-scale=1')
+    title Your Cool Website
+    link(rel='stylesheet', href='/assets/css/style.css')
+  body(ng-app='app')
+    nav.nav
+      .nav-left
+        a.nav-item.is-brand(href='/#/') Demo Day Site Generator
+      .nav-right.nav-menu
+        a.nav-item(href='/#/')
+          | Students
+        a.nav-item(href='/#/projects')
+          | Projects
+    .container.pad
+      block content
+    // SCRIPTS
+    script(src='/assets/js/bundle.min.js')

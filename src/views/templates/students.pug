@@ -1,0 +1,17 @@
+h3.title
+  | Update Student
+form(ng-submit="vm.updateStudent()")
+  p.control
+    input.input(type='text', ng-model="vm.student.name")
+  p.control
+    span.select
+      select(name='class', ng-model='vm.student.class')
+        option(value='') Choose Class
+        option(value='JavaScript') JavaScript
+        option(value='Java') Java
+        option(value='iOS') iOS
+  p.control
+    input.input(type='text', ng-model="vm.student.github")
+  p.control
+    button.button
+      | Update Student
