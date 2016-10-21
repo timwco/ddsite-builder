@@ -28,10 +28,12 @@ function Storage (localStorageService) {
 
   function getProjects () {
     let projects = localStorageService.get('projects');
+    console.log('Getting Projects', projects);
     return (projects) ? projects : [];
   }
 
   function setProjects (list) {
+    console.log('Setting Projects', list)
     return localStorageService.set('projects', list);
   }
 

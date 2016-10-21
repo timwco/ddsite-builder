@@ -24,6 +24,11 @@ function config ($stateProvider, $urlRouterProvider, localStorageServiceProvider
       controller: 'ProjectController as vm',
       templateUrl: 'templates/project.html'
     })
+    .state('generate', {
+      url: '/generate',
+      controller: 'GenerateController as vm',
+      templateUrl: 'templates/generate.html'
+    })
   
 
   $urlRouterProvider.otherwise('/')

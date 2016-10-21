@@ -22,7 +22,7 @@ function ProjectsController (Storage) {
   }
 
   function clearProjects () {
-    return Storage.clearProjects();
+    vm.projects = Storage.clearProjects();
   }
 
 

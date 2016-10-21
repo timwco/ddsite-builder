@@ -7,6 +7,7 @@ import { StudentsController } from './controllers/students.controller'
 import { StudentController } from './controllers/student.controller';
 import { ProjectsController } from './controllers/projects.controller';
 import { ProjectController } from './controllers/project.controller';
+import { GenerateController } from './controllers/generate.controller';
 
 import { Storage } from './services/storage.service';
 
@@ -17,4 +18,5 @@ angular
   .controller('StudentController', StudentController)
   .controller('ProjectsController', ProjectsController)
   .controller('ProjectController', ProjectController)
+  .controller('GenerateController', GenerateController)
   .service('Storage', Storage)
