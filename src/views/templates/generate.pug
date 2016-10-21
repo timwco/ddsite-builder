@@ -1,17 +1,15 @@
 .columns
   .column
-    h3.title Demo Day Projects
+    h3.title Project List
     ul.menu-list
       li(ng-repeat="project in vm.projects", id="{{ project.id }}")
         a(href='/#/projects/{{ project.id }}') {{ project.name }}
         ul
           li(ng-repeat="student in project.students")
-            a(href='https://github.com/{{ student }}', target='_blank') {{ student }}
+            a(href='/#/students/{{ student.id }}') {{ student.name }}
   .column
-    h3.title Build Website
-    p If everythign looks good, go ahead and generate the two sets of data.
+    h3.title Generate Data
+    p If everything looks good, go ahead and generate the data.
     hr
-    a.button.is-info.is-medium(ng-click="vm.downloadStudents()") Generate Student Data
-    a.button.is-info.is-medium.fl-right(ng-click="vm.downloadProjects()") Generate Project Data
-    a#downloadStudents(style='display:none')
+    a.button.is-info.is-large(ng-click="vm.buildDownload()") Generate Project Data
     a#downloadProjects(style='display:none')

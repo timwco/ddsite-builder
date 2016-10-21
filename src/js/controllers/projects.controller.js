@@ -11,7 +11,6 @@ function ProjectsController (Storage) {
   function init () {
     vm.students = Storage.getStudents();
     vm.projects = Storage.getProjects();
-    console.log(vm.projects);
   }
   
   function addProject () {

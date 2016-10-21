@@ -1,31 +1,39 @@
+import _ from 'lodash';
+
 function GenerateController (Storage) {
 
   let vm = this;
 
-  vm.downloadStudents = downloadStudents;
-  vm.downloadProjects = downloadProjects;
+  vm.buildDownload = buildDownload;
 
   init();
 
   function init () {
-    vm.students = Storage.getStudents();
-    vm.projects = Storage.getProjects();
+    let projects = Storage.getProjects();
+    let students = Storage.getStudents();
+    vm.projects = addStudentData(projects, students);
   }
 
-  function downloadStudents () {
-    let data = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(vm.students));
-    let studentElem = document.getElementById('downloadStudents');
-    studentElem.setAttribute("href", data);
-    studentElem.setAttribute("download", "students.json");
-    studentElem.click();
+  function buildDownload () {
+    downloadProjects(vm.projects);
   }
 
-  function downloadProjects () {
-    let data = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(vm.projects));
+
+  function downloadProjects (projects) {
+    let data = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(projects));
     let projectElem = document.getElementById('downloadProjects');
     projectElem.setAttribute("href", data);
     projectElem.setAttribute("download", "projects.json");
     projectElem.click();
+  }
+
+  function addStudentData (projects, students) {
+    return _.map(projects, (p) => {
+      p.students = _.map(p.students, (s) => {
+        return _.find(students, { github: s });
+      });
+      return p;
+    });
   }
 
 }

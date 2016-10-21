@@ -1,13 +1,18 @@
 div.content
-  h3.title Welcome
+  .notification.is-danger
+    |   Please note this app uses Local Storage, so you cannot collab on this. 
+    | Also, data that you create will not be visible on anyone elses computer.
+  h3.title Readme
   p This is a simple tool to help you generate a list of students and a list of projects to build out a demo day website.
-  p There are three sections to this website, Students, Projects and Generate.
   p 
     | The first you should focus on is the 
     a(href='/#/students') Students 
     | section. Here you will add a list of all the students that will be a part of demo day. You will need to specify their Full Name, Github Username and which class they took. 
   blockquote
     | It is extremely important that their Github Username be both correct and in lowercase.
+    br
+    br 
+    | Example: kingcons
   p 
     | After you create a list of the students, you can start to create the 
     a(href='/#/projects') Projects 
